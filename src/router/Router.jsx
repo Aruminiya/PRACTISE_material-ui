@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     path: '/about',
     element: <About />,
   },
-])
+]);
 
 export default function Router() {
   return <RouterProvider router={router} />

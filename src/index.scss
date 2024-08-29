@@ -1,17 +1,1 @@
 @import './normalize.css';
-
-* {
-  border: solid 1px;
-}
-
-#nav {
-  background-color: #adadad;
-  width: 100%;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  .links {
-    display: flex;
-  }
-}
