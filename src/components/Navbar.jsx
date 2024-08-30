@@ -1,50 +1,59 @@
-import { Button } from '@mui/material';
-import { styled } from '@mui/system';
+import { PropTypes } from 'prop-types';
 
+import { useState } from 'react';
+import { AppBar, Box, Toolbar, Link, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
-// const MyThemeComponent = styled('div')(({ theme }) => ({
-//   color: theme.palette.primary.contrastText,
-//   backgroundColor: theme.palette.primary.main,
-//   padding: theme.spacing(1),
-//   borderRadius: theme.shape.borderRadius,
-// }));
-
-const Nav = styled("nav")(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  width: "100%",
-  height: "40px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  "& ul": {
-    display: "flex",
-    "& li": {
-      listStyle: "none"
-    }
-  }
-}));
-
-const navList = [
+const links = [
   {
     href: "/",
     title: "首頁"
   },
   {
-    href: "about",
+    href: "/about",
     title: "關於我們"
+  },
+  {
+    href: "/muiTest",
+    title: "MUI 元件測試"
   }
 ];
 
-export default function Navbar() {
+export default function ButtonAppBar({sidebarSwitch}) {
+  // eslint-disable-next-line no-unused-vars
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+
+  function handleIconButtonClick (toSwitch) {
+    setSidebarIsOpen((prev) => {
+      const newState = !prev;
+      toSwitch(newState);
+      return newState;
+    });
+  };
+
   return (
-    <Nav>
-      <ul className="links">
-        {navList.map((link)=><li key={link.href}>
-          <Button color="white" href={link.href}>
-            {link.title}
-          </Button>
-        </li>)}
-      </ul>
-    </Nav>
-  )
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={()=>{handleIconButtonClick(sidebarSwitch)}}
+          >
+            <MenuIcon />
+          </IconButton>
+          {links.map(link => <Box key={link.href} margin="0 12px">
+            <Link color="white" href={link.href} underline="none">{link.title}</Link>
+          </Box>)}
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
+
+ButtonAppBar.propTypes = {
+  sidebarSwitch: PropTypes.func,
 };
