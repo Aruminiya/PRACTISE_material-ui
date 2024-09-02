@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Stack, Box, TextField, Modal, RadioGroup, FormLabel, FormControlLabel, Radio, Button } from '@mui/material';
+import { Stack, Box, TextField, Modal, RadioGroup, FormLabel, FormControlLabel, Radio, Button, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useForm, Controller } from "react-hook-form";
 
@@ -10,7 +10,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: "8px",
   boxShadow: 24,
   p: 4,
 };
@@ -60,7 +60,7 @@ export default function EditModal({ title, isOpen, handleClose, modalData, editD
                     message: "名稱不可大於 10 個字"
                   } })}
                 />
-                <p>{errors?.member?.message}</p>
+                <Typography sx={{color: "#ef4444", margin: "6px 0"}} variant="p" component="p">{errors?.member?.message}</Typography>
                 <FormLabel id="demo-row-radio-buttons-group-label">性別</FormLabel>
                 <Controller
                    name='gender'
@@ -78,14 +78,14 @@ export default function EditModal({ title, isOpen, handleClose, modalData, editD
                     </RadioGroup>
                   )}
                 />  
-                <p>{errors?.gender?.message}</p>
+                <Typography sx={{color: "#ef4444", margin: "6px 0"}} variant="p" component="p">{errors?.gender?.message}</Typography>
                 <TextField
                   label="地址"
                   fullWidth
                   name="address"
                   {...register("address", { required: "地址選項必填" })}
                 />
-                <p>{errors?.address?.message}</p>
+                <Typography sx={{color: "#ef4444", margin: "6px 0"}} variant="p" component="p">{errors?.address?.message}</Typography>
               </>
             ) : (
               <h3>無資料</h3>

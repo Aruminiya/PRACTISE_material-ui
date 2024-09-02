@@ -50,7 +50,7 @@ export default function MuiX_DataGrid_Demo() {
       headerName: '性別',
       width: 150,
       renderCell: (params) => (
-        params.value === 'male' ? '男生' : '女生'
+        params.value === 'male' ? '男生' : params.value === 'female' ? '女生' : '其他'
       ),
     },
     { field: 'address', headerName: '地址', width: 300 },
