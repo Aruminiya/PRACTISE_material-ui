@@ -34,6 +34,10 @@ const links = [
   {
     href: "muiTable",
     title: "Table"
+  },
+  {
+    href: "muiModal",
+    title: "Modal"
   }
 ];
 

@@ -13,6 +13,7 @@ import MuiIcons from "../components/MuiIcons.jsx";
 import MuiTable from "../components/MuiTable.jsx";
 import MuiX_DataGrid from "../pages/MuiX_DataGrid.jsx";
 import MuiX_DataGrid_Demo from "../components/MuiX_DataGrid_Demo.jsx";
+import MuiModal from "../components/MuiModal.jsx";
 
 
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       { 
         path: '/muiTest/muiTable',
         element: <MuiTable />,
+      },
+      { 
+        path: '/muiTest/muiModal',
+        element: <MuiModal />,
       }
     ]
   },
