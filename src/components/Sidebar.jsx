@@ -26,6 +26,10 @@ const links = [
   {
     href: "/muiTest",
     title: "MUI 元件測試"
+  },
+  {
+    href: "/muiX-dataGrid",
+    title: "MuiX DataGrid"
   }
 ];
 

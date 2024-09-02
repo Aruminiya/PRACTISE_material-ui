@@ -2,18 +2,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomePage from "../pages/HomePage.jsx";
 import About from "../pages/About.jsx";
-import MuiTest from "../pages/MuiTest.jsx";
-import MuiButton from "../components/MuiButton.jsx";
-import MuimuiAutocomplete from "../components/MuimuiAutocomplete.jsx";
-import MuiCheckbox from "../components/MuiCheckbox.jsx";
-import MuiSelect from "../components/MuiSelect.jsx";
-import MuiSwitch from "../components/MuiSwitch.jsx";
-import MuiTextField from "../components/MuiTextField.jsx";
-import MuiIcons from "../components/MuiIcons.jsx";
-import MuiTable from "../components/MuiTable.jsx";
-import MuiX_DataGrid from "../pages/MuiX_DataGrid.jsx";
-import MuiX_DataGrid_Demo from "../components/MuiX_DataGrid_Demo.jsx";
-import MuiModal from "../components/MuiModal.jsx";
+import MuiTest from "../pages/MuiTest/index.jsx";
+import MuiButton from "../pages/MuiTest/MuiButton.jsx";
+import MuimuiAutocomplete from "../pages/MuiTest/MuimuiAutocomplete.jsx";
+import MuiCheckbox from "../pages/MuiTest/MuiCheckbox.jsx";
+import MuiSelect from "../pages/MuiTest/MuiSelect.jsx";
+import MuiSwitch from "../pages/MuiTest/MuiSwitch.jsx";
+import MuiTextField from "../pages/MuiTest/MuiTextField.jsx";
+import MuiIcons from "../pages/MuiTest/MuiIcons.jsx";
+import MuiTable from "../pages/MuiTest/MuiTable.jsx";
+import MuiX_DataGrid from "../pages/MuiX_DataGrid/index.jsx";
+import MuiX_DataGrid_Demo from "../pages/MuiX_DataGrid/MuiX_DataGrid_Demo.jsx";
+import MuiModal from "../pages/MuiTest/MuiModal.jsx";
 
 
 
