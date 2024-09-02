@@ -20,6 +20,10 @@ const links = [
   {
     href: "/muiX-dataGrid",
     title: "MuiX DataGrid"
+  },
+  {
+    href: '/reactHookForm',
+    title: 'ReactHookForm',
   }
 ];
 
