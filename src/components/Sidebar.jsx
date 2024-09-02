@@ -8,7 +8,7 @@ const SidebarElement = styled('div')(({ theme }) => ({
   position: 'absolute',
   width: '150px',
   height: '100%',
-  background: theme.palette.white.main, // 假设你已经解决了这个问题
+  background: theme.palette.white.main,
   zIndex: 10,
   transition: 'transform 0.3s ease', // 添加过渡效果
   transform: 'translateX(0%)', // 初始状态
