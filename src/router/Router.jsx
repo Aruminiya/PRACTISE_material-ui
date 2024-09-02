@@ -11,6 +11,8 @@ import MuiSwitch from "../components/MuiSwitch.jsx";
 import MuiTextField from "../components/MuiTextField.jsx";
 import MuiIcons from "../components/MuiIcons.jsx";
 import MuiTable from "../components/MuiTable.jsx";
+import MuiX_DataGrid from "../pages/MuiX_DataGrid.jsx";
+import MuiX_DataGrid_Demo from "../components/MuiX_DataGrid_Demo.jsx";
 
 
 
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
       { 
         path: '/muiTest/muiTable',
         element: <MuiTable />,
+      }
+    ]
+  },
+  {
+    path: '/muiX-dataGrid',
+    element: <MuiX_DataGrid />,
+    children: [
+      { 
+        path: '/muiX-dataGrid/muiX-dataGrid-demo',
+        element: <MuiX_DataGrid_Demo />,
       }
     ]
   }
