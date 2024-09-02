@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Stack, Box, TextField, Modal, RadioGroup, FormLabel, FormControlLabel, Radio, Button } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useForm, Controller } from "react-hook-form";
 
 const style = {
   position: 'absolute',
@@ -15,22 +16,25 @@ const style = {
 };
 
 export default function EditModal({ title, isOpen, handleClose, modalData, editData }) {
-  const [member, setMember] = useState({});
+  console.log(modalData)
+
+  const { register, handleSubmit, watch, reset, control, formState: { errors } } = useForm({
+    defaultValues: {
+      ...modalData,
+    }
+  });
 
   useEffect(() => {
-    setMember({ ...modalData });
-  }, [modalData]); // 確保 modalData 有資料傳入
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setMember((prevMember) => ({
-      ...prevMember,
-      [name]: value,
-    }));
-  };
+    console.log(modalData);
+    if (modalData) {
+      reset(modalData);
+    }
+  }, [modalData, reset]); 
+  // 使用 `useEffect` 監聽 `modalData` 的變化 , 當 `modalData` 更新時，使用 `reset` 函數來更新表單的值。
 
   const handleEditSubmit = () => {
-    editData(member);
+    console.log(watch());
+    editData(watch());
   }
 
   return (
@@ -44,41 +48,50 @@ export default function EditModal({ title, isOpen, handleClose, modalData, editD
         <Box sx={style}>
           <Stack spacing={2}>
           <h2>{title}</h2>
-          <div>
+          <form onSubmit={handleSubmit(handleEditSubmit)}>
             {modalData ? (
               <>
                 <TextField
                   label="會員"
                   fullWidth
                   name="member"
-                  value={member.member || ''}
-                  onChange={handleInputChange}
+                  {...register("member", { required: "會員名稱必填", maxLength: {
+                    value: 10,
+                    message: "名稱不可大於 10 個字"
+                  } })}
                 />
+                <p>{errors?.member?.message}</p>
                 <FormLabel id="demo-row-radio-buttons-group-label">性別</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  name="gender"
-                  value={member.gender || ''}
-                  onChange={handleInputChange}
-                >
-                  <FormControlLabel value="female" control={<Radio />} label="女生" />
-                  <FormControlLabel value="male" control={<Radio />} label="男生" />
-                  <FormControlLabel value="other" control={<Radio />} label="其他" />
-                </RadioGroup>
+                <Controller
+                   name='gender'
+                   control={control}
+                   rules={{ required: "性別選項必填" }}
+                   render={({ field }) => ( // field` 是 React Hook Form 的 `Controller` 元件在 `render` 函數中提供的一個物件。這個物件包含了與表單控制項交互所需的所有屬性和方法。
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      {...field}
+                    >
+                      <FormControlLabel value="female" control={<Radio />} label="女生" />
+                      <FormControlLabel value="male" control={<Radio />} label="男生" />
+                      <FormControlLabel value="other" control={<Radio />} label="其他" />
+                    </RadioGroup>
+                  )}
+                />  
+                <p>{errors?.gender?.message}</p>
                 <TextField
                   label="地址"
                   fullWidth
                   name="address"
-                  value={member.address || ''}
-                  onChange={handleInputChange}
+                  {...register("address", { required: "地址選項必填" })}
                 />
+                <p>{errors?.address?.message}</p>
               </>
             ) : (
               <h3>無資料</h3>
             )}
-          </div>
-          <Button variant="contained" onClick={handleEditSubmit}>確定修改</Button>
+            <Button type='submit' sx={{marginTop: "15px"}} fullWidth variant="contained">確定修改</Button>
+          </form>
           </Stack>
   
         </Box>
