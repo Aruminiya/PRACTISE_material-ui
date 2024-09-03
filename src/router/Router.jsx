@@ -15,6 +15,7 @@ import MuiX_DataGrid from "../pages/MuiX_DataGrid/index.jsx";
 import MuiX_DataGrid_Demo from "../pages/MuiX_DataGrid/MuiX_DataGrid_Demo.jsx";
 import MuiModal from "../pages/MuiTest/MuiModal.jsx";
 import ReactHookForm from "../pages/ReactHookForm.jsx";
+import SwrTest from "../pages/SwrTest.jsx";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: '/reactHookForm',
     element: <ReactHookForm />,
+  },
+  {
+    path:'/swrTest',
+    element: <SwrTest />
   }
 ]);
 

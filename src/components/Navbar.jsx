@@ -24,6 +24,10 @@ const links = [
   {
     href: '/reactHookForm',
     title: 'ReactHookForm',
+  },
+  {
+    href: '/swrTest',
+    title: 'SWR Test'
   }
 ];
 
