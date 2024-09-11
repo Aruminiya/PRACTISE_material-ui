@@ -38,6 +38,10 @@ const links = [
   {
     href: "muiModal",
     title: "Modal"
+  },
+  {
+    href: "muiDatePickers",
+    title: "DatePickers"
   }
 ];
 
