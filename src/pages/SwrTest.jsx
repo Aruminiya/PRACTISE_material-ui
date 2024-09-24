@@ -3,7 +3,7 @@ import useSWR from 'swr'
 // SWR 的主要目的是處理數據的緩存和同步，而不是直接發送 HTTP 請求。雖然 SWR 可以用來發送 GET 請求，但它的核心功能是管理數據的緩存、重新驗證和同步。
 
 
-function Profile() {
+function SwrTest() {
   const fetcher = (url) => fetch(url, {
     headers: {
       'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}` // 假設你使用 Bearer Token
@@ -16,10 +16,4 @@ function Profile() {
   return <JsonView data={result}/>
 }
 
-export default function SwrTest() {
-  return (
-    <>
-      <Profile/>
-    </>
-  )
-}
+export default SwrTest
