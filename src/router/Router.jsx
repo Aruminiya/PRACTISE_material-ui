@@ -17,7 +17,6 @@ import MuiModal from "../pages/MuiTest/MuiModal.jsx";
 import MuiDatePickers from "../pages/MuiTest/MuiDatePickers.jsx";
 import ReactHookForm from "../pages/ReactHookForm.jsx";
 import SwrTest from "../pages/SwrTest.jsx";
-import FreeTest from "../pages/FreeTest.jsx"
 
 const router = createBrowserRouter([
   {
@@ -91,10 +90,6 @@ const router = createBrowserRouter([
   {
     path:'/swrTest',
     element: <SwrTest />
-  },
-  {
-    path:'/FreeTest',
-    element: <FreeTest />
   }
 ]);
 
