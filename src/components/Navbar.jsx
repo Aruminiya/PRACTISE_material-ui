@@ -28,6 +28,10 @@ const links = [
   {
     href: '/swrTest',
     title: 'SWR Test'
+  },
+  {
+    href: '/freeTest',
+    title: '自由測試區'
   }
 ];
 
